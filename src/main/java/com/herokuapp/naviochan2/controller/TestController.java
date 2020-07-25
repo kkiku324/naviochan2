@@ -1,4 +1,4 @@
-package com.herokuapp.naviochan2.test;
+package com.herokuapp.naviochan2.controller;
 
 import java.util.Map;
 
@@ -23,6 +23,7 @@ public class TestController {
 	
 	@GetMapping("/")
 	public String test(Model model) {
+		// 表示するのを最新の50個の投稿のみにするなど、投稿が増えた時の対策が必要
 		//String sql = "SELECT id, name, body FROM comments ORDER BY id DESC";
 		String sql = "SELECT id, name, body FROM comments WHERE id = 1";
 		

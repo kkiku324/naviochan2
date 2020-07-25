@@ -5,9 +5,15 @@
 <title>ナビオちゃん2</title>
 </head>
 <body>
-<p>Hello World</p>
-<p th:text="${id}">here should be id</p>
-<p th:text="${name}">here should be name</p>
-<p th:text="${body}">here should be body</p>
+<h1 th:text="${title}"></h1>
+<form method="post" action="#" th:action="@{/forum/complete}" th:object="${comment}">
+	<label for="name">お名前</label>
+	<input id="name" name="name" type="text"><br>
+	<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+	<label for="contents">コメント</label>
+	<textarea name="body" id="body" rows="5" cols="70"></textarea><br>
+	<div th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></div>
+	<input type="submit" value="投稿">
+</form>
 </body>
 </html>
